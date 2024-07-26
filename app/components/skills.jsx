@@ -5,7 +5,7 @@ const Skills = () => {
             <p>Languages: Js, Java, Python, C# & Rust </p>
             <p>Tools: Git, GitHub, Azure & Docker</p>
             <p>Libraries/framework: Next.js, React.js, Node.js, express.js</p>
-            <p>Databases: PostreSQL, Oracle SQL, MongoDB & Firebase</p>
+            <p>Databases: PostgreSQL, Oracle SQL, MongoDB & Firebase</p>
         </div>
     )
 }

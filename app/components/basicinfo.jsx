@@ -7,7 +7,7 @@ import Education from "./education";
 
 const BasicInfo = () => {
   return (
-    <div className=" p-5 h-fit border rounded-xl flex gap-2">
+    <div className=" p-5 h-fit border shadow-lg rounded-xl flex gap-2">
         <Image src="/image.png" width={150} height={150} className=" rounded-full" />
         <div className="text-xl p-2 flex flex-col gap-1">
           <span className="font-bold">Raiyna Anwar</span>
