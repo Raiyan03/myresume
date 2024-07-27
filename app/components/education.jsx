@@ -1,6 +1,6 @@
 const Education = () => {
     return (
-        <div className=" flex flex-col p-2 ml-5 text-xl">
+        <div className=" flex flex-col p-2 text-xl">
             <h1 className="font-bold">Education</h1>
             <p className=" font-semibold ">Southern Alberta Institute of Technology</p>
             <p className=" font-mono" > Software Development Diploma</p>
