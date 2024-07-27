@@ -1,10 +1,13 @@
 "use client"
 import { useState } from "react"
+import {validateForm} from "../(lib)/validation"
+import axios from "axios";
 const Contact = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-    
+    const [name, setName] = useState();
+    const [email, setEmail] = useState();
+    const [message, setMessage] = useState();
+    const [error, setError] = useState();
+    const [success, setSuccess] = useState();
     const handleChangeName = (e) => {
         setName(e.target.value);
     }
@@ -17,8 +20,25 @@ const Contact = () => {
         setMessage(e.target.value);
     }
 
-    const onSubmit = () => {
+    const onSubmit = async (e) => {
+        setError("");
+        setEmail("");
+        setName("");
+        setMessage("");
+        e.preventDefault();
         console.log(name, email, message);
+        const validation = validateForm(name, email, message);
+        if (validation.error) {
+            setError(validation.error);
+            return;
+        }
+        try{
+            const response = await axios.post("/api/send", {name, email, message});
+            setSuccess("Email sent successfully");
+        }
+        catch(error){
+            setError("An error occurred. Please try again later.");
+        }
     }
     return (
         <div className="min-h-screen flex flex-col items-center justify-center p-5 bg-gray-100">
@@ -64,6 +84,8 @@ const Contact = () => {
               >
                 Send Message
               </button>
+              {error && <p className="text-red-500">{error}</p>}
+              {success && <p className="text-emerald-500">{success}</p>}
             </form>
           </div>
         </div>

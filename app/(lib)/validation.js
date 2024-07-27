@@ -1,5 +1,3 @@
-import { error } from "console"
-
 const validateName = (name) => {
     if (name.length < 3 || !name) {
         return {error: "Name must be at least 3 characters"};
